@@ -1,0 +1,11 @@
+{
+  "domain": "elkoep_lara",
+  "name": "elkoep_lara",
+  "documentation": "",
+  "requirements": [
+    "websockets==6.0",
+    "elkoep_lara==0.1.0"
+  ],
+  "dependencies": ["configurator"],
+  "codeowners": []
+}
