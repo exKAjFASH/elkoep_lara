@@ -28,7 +28,7 @@ media_player:
 ```
 
 ***
-ElkoEP Lara is always on device, so turn on or off is not supported.
+ElkoEP Lara is always on device, so turn on or off are not supported.
 This is initial version so configured password are not supported - only default.
 
 ***
