@@ -1,7 +1,7 @@
 {
   "domain": "elkoep_lara",
   "name": "elkoep_lara",
-  "documentation": "",
+  "documentation": "https://github.com/exKAjFASH/media_player.elkoep_lara/tree/master",
   "requirements": [
     "websockets==6.0",
     "elkoep_lara==0.1.0"
