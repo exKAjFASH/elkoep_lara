@@ -8,6 +8,7 @@ from typing import Dict
 import voluptuous as vol
 
 from elkoep_lara import LaraClient
+__version__ = '0.1.0'
 
 from homeassistant import util
 from homeassistant.components.media_player import MediaPlayerDevice, PLATFORM_SCHEMA
@@ -98,7 +99,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
 
 class LaraDevice(MediaPlayerDevice):
-    """Representation of a LG WebOS TV."""
+    """Representation of a ElkoEP Lara Device."""
 
     def __init__(self, host, name, customize, config, timeout):
         """Initialize the webos device."""
