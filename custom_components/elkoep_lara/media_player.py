@@ -11,7 +11,7 @@ from elkoep_lara import LaraClient
 __version__ = '0.1.0'
 
 from homeassistant import util
-from homeassistant.components.media_player import MediaPlayerDevice, PLATFORM_SCHEMA
+from homeassistant.components.media_player import MediaPlayerEntity, PLATFORM_SCHEMA
 from homeassistant.components.media_player.const import (
     MEDIA_TYPE_CHANNEL,
     SUPPORT_NEXT_TRACK,
@@ -98,7 +98,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
 
 
-class LaraDevice(MediaPlayerDevice):
+class LaraDevice(MediaPlayerEntity):
     """Representation of a ElkoEP Lara Device."""
 
     def __init__(self, host, name, customize, config, timeout):
