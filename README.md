@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/version-0.2.0-green.svg?style=for-the-badge)](#)
+[![Version](https://img.shields.io/badge/version-0.2.5-green.svg?style=for-the-badge)](#)
 [![mantained](https://img.shields.io/maintenance/yes/2022.svg?style=for-the-badge)](#)
 [![maintainer](https://img.shields.io/badge/maintainer-%20%40KAjFASH-blue.svg?style=for-the-badge)](#)
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
