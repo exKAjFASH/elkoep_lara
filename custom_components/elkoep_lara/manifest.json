@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "documentation": "https://github.com/exKAjFASH/media_player.elkoep_lara/tree/master",
   "requirements": [
-    "websockets==6.0",
+    "websockets",
     "elkoep_lara==0.1.0"
   ],
   "dependencies": ["configurator"],
