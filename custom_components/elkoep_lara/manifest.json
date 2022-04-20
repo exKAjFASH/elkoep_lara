@@ -1,7 +1,7 @@
 {
   "domain": "elkoep_lara",
   "name": "elkoep_lara",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "documentation": "https://github.com/exKAjFASH/media_player.elkoep_lara/tree/master",
   "requirements": [
     "websockets",
