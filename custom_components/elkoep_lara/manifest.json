@@ -1,11 +1,11 @@
 {
   "domain": "elkoep_lara",
   "name": "elkoep_lara",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "documentation": "https://github.com/exKAjFASH/media_player.elkoep_lara/tree/master",
   "requirements": [
     "websockets",
-    "elkoep_lara==0.2.0"
+    "elkoep_lara==0.2.1"
   ],
   "dependencies": ["configurator"],
   "codeowners": []
