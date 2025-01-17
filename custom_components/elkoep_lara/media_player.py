@@ -11,21 +11,14 @@ from elkoep_lara import LaraClient
 __version__ = '0.1.0'
 
 from homeassistant import util
-from homeassistant.components.media_player import MediaPlayerEntity, PLATFORM_SCHEMA
-from homeassistant.components.media_player.const import (
-    MEDIA_TYPE_CHANNEL,
-    SUPPORT_NEXT_TRACK,
-    SUPPORT_PAUSE,
-    SUPPORT_PLAY,
-    SUPPORT_PLAY_MEDIA,
-    SUPPORT_PREVIOUS_TRACK,
-    SUPPORT_SELECT_SOURCE,
-    SUPPORT_TURN_OFF,
-    SUPPORT_TURN_ON,
-    SUPPORT_VOLUME_MUTE,
-    SUPPORT_VOLUME_SET,
-    SUPPORT_VOLUME_STEP,
+from homeassistant.components.media_player import (
+    PLATFORM_SCHEMA as MEDIA_PLAYER_PLATFORM_SCHEMA,
+    MediaPlayerEntity,
+    MediaPlayerEntityFeature,
+    MediaPlayerState,
+    MediaType,
 )
+from homeassistant.components.media_player import MediaPlayerEntity, PLATFORM_SCHEMA
 from homeassistant.const import (
     CONF_CUSTOMIZE,
     CONF_FILENAME,
@@ -46,17 +39,6 @@ CONF_SOURCES = "sources"
 DEFAULT_NAME = "Lara Radio"
 
 LARA_CONFIG_FILE = "elkoep_lara.conf"
-
-SUPPORT_LARA = (
-    SUPPORT_NEXT_TRACK
-    | SUPPORT_PAUSE
-    | SUPPORT_PREVIOUS_TRACK
-    | SUPPORT_VOLUME_MUTE
-    | SUPPORT_VOLUME_SET
-    | SUPPORT_VOLUME_STEP
-    | SUPPORT_SELECT_SOURCE
-    | SUPPORT_PLAY
-)
 
 CUSTOMIZE_SCHEMA = vol.Schema(
     {vol.Optional(CONF_SOURCES): vol.All(cv.ensure_list, [cv.string])}
@@ -100,6 +82,18 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
 
 class LaraDevice(MediaPlayerEntity):
     """Representation of a ElkoEP Lara Device."""
+
+    _attr_media_content_type = MediaType.CHANNEL
+    _attr_supported_features = (
+        MediaPlayerEntityFeature.NEXT_TRACK
+        | MediaPlayerEntityFeature.PAUSE
+        | MediaPlayerEntityFeature.PREVIOUS_TRACK
+        | MediaPlayerEntityFeature.VOLUME_MUTE
+        | MediaPlayerEntityFeature.VOLUME_SET
+        | MediaPlayerEntityFeature.VOLUME_STEP
+        | MediaPlayerEntityFeature.SELECT_SOURCE
+        | MediaPlayerEntityFeature.PLAY
+    )
 
     def __init__(self, host, name, customize, config, timeout):
         """Initialize the webos device."""
@@ -172,11 +166,6 @@ class LaraDevice(MediaPlayerEntity):
         return self._lara.stations
 
     @property
-    def media_content_type(self):
-        """Content type of current playing media."""
-        return MEDIA_TYPE_CHANNEL
-
-    @property
     def media_title(self):
         return self._lara.station
 
@@ -184,11 +173,6 @@ class LaraDevice(MediaPlayerEntity):
     def media_image_url(self):
         """Image url of current playing media."""
         return None
-
-    @property
-    def supported_features(self):
-        """Flag media player features that are supported."""
-        return SUPPORT_LARA
 
     def volume_up(self):
         self._lara.volume_up()
